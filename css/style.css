@@ -1,0 +1,61 @@
+.productLink {
+    text-decoration: underline;
+}
+
+.table td,
+.table th {
+    vertical-align: middle !important;
+}
+
+.sortButton {
+    color: #17a2b8;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+.sortButton:hover {
+    color: #ffc107;
+}
+
+.w-15 {
+    width: 15% !important;
+}
+
+@media (min-width: 768px) {
+    .ml-md-3 {
+        margin-left: 1rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .px-lg-4 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .mr-lg-2 {
+        margin-right: 0.5rem !important;
+    }
+
+    .ml-lg-2 {
+        margin-left: 0.5rem !important;
+    }
+}
+
+.sortButton {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#inputForm input {
+    background-image: none;
+    padding-right: 0.25rem;
+}
+
+body h1{
+    font-size: 100px !important;
+}

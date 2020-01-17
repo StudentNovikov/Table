@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <section id="productTable">
+        <div class="container mt-5">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <input class="form-control " id="searchFilter" type="text"
+                        placeholder="Фильтр по подстроке в имени товара">
+                </div>
+                <div class="col clearfix">
+                    <button class="btn btn-outline-primary float-left" id="searchBtn">Search</button>
+                    <button class="btn btn-success float-right px-sm-4" data-toggle="modal" data-target="#submitModal"
+                        id="addNewBtn">Add New</button>
+                </div>
+            </div>
+
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span></span> Name <span class="sortButton mt-n1" id="sortByName">&#9651;</span>
+                            </div>
+                        </th>
+                        <th class="w-15">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span></span> Price <span class="sortButton mt-n1" id="sortPrices">&#9651;</span>
+                            </div>
+                        </th>
+                        <th class="w-25">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>                        
+                    <!-- Products -->
+                </tbody>
+            </table>
+        </div>
+     </section>
+
+    <section id="inputModule">
+        <!-- SUBMIT MODAL -->
+        <div class="modal" id="submitModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        <div class="mt-5">
+                            <form id="inputForm">
+                                <div class="form-row col">
+                                    <div class="form-group col-8">
+                                        <label for="inputName" id="nameLabel"> <span >Name:</span></label>
+                                        <input type="text" class="form-control" id="inputName">
+                                        <div class="invalid-feedback" id="name-invalid-feedback">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label for="inputName">&nbsp;</label>
+                                        <p class="mt-1"> <span class="text-muted"> • Required field </span> </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-3">
+                                    <label for="inputCount" id="countLabel">Count:</label>
+                                    <input type="number" class="form-control" id="inputCount">
+                                    <div class="invalid-feedback">
+                                        Количество не может быть меньше 0
+                                    </div>
+                                </div>
+                                <div class="form-group col-8">
+                                    <label for="inputPrice" id="priceLabel">Price:</label>
+                                    <input type="text" class="form-control" id="inputPrice">
+                                    <div class="invalid-feedback">
+                                        Цена не может быть меньше 0
+                                    </div>
+                                </div>
+                                <div class="form-group col-4 mt-4">
+                                    <button class="btn btn-block btn-outline-primary" id="submitProduct">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="deleteModule">
+        <!-- DELETE MODAL -->
+        <div class="modal" id="deleteModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title mx-auto">Are you sure?</h3>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <h5 class="mb-4">Are you sure you want to perform this action?</h5>
+                        <button class="btn btn-outline-danger px-5 mr-2" data-dismiss="modal"
+                            id="deleteConfirmBtn">Yes</button>
+                        <button class="btn btn-outline-secondary px-5 ml-2" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.9.1/polyfill.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="scripts/main.js" type="text/babel"></script>
+</body>
+
+</html>
